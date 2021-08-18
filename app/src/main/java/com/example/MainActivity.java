@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.app.R;
 import com.google.android.play.core.splitcompat.SplitCompat;
 import com.google.android.play.core.splitinstall.SplitInstallManager;
@@ -69,13 +67,14 @@ public class MainActivity extends Activity {
                     startDynamicModuleActivity();
                 })
                 .addOnFailureListener(exception -> {
+                    Toast.makeText(this, "Failed to install dynamic module", Toast.LENGTH_SHORT).show();
                 });
     }
 
     private void startDynamicModuleActivity() {
         startActivity(
                 new Intent().setClassName(
-                        "com.example.dynamicfeature",
+                        "com.example.app",
                         "com.example.dynamicfeature.VoskActivity"
                 )
         );
