@@ -1,5 +1,6 @@
-package org.vosk;
+package com.example;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.app.R;
+import com.google.android.play.core.splitcompat.SplitCompat;
 import com.google.android.play.core.splitinstall.SplitInstallManager;
 import com.google.android.play.core.splitinstall.SplitInstallManagerFactory;
 import com.google.android.play.core.splitinstall.SplitInstallRequest;
@@ -15,7 +17,7 @@ import com.google.android.play.core.splitinstall.SplitInstallRequest;
 import java.util.Set;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     SplitInstallManager splitInstallManager;
 
@@ -33,6 +35,13 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Dynamic module already installed", Toast.LENGTH_SHORT).show();
             startDynamicModuleActivity();
         }
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        // Emulates installation of on demand modules using SplitCompat.
+        SplitCompat.installActivity(this);
     }
 
     private void installDynamicModule() {
@@ -66,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     private void startDynamicModuleActivity() {
         startActivity(
                 new Intent().setClassName(
-                        "com.example",
+                        "com.example.dynamicfeature",
                         "com.example.dynamicfeature.VoskActivity"
                 )
         );

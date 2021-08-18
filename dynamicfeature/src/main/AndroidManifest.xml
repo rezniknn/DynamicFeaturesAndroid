@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:dist="http://schemas.android.com/apk/distribution"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dynamicfeature">
 
     <dist:module
@@ -10,4 +11,9 @@
         </dist:delivery>
         <dist:fusing dist:include="true" />
     </dist:module>
+
+    <application>
+        <activity android:name="com.example.dynamicfeature.VoskActivity"/>
+    </application>
+
 </manifest>
