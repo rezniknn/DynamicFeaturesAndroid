@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.vosk.demo">
+    package="com.example.app">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -8,10 +8,12 @@
     <application
         android:allowBackup="false"
         android:icon="@drawable/icon"
-        android:label="@string/app_name" >
+        android:label="@string/app_name"
+        android:name="com.google.android.play.core.splitcompat.SplitCompatApplication">
         <activity
-            android:name="VoskActivity"
-            android:label="@string/app_name" >
+            android:name="org.vosk.MainActivity"
+            android:label="@string/app_name"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

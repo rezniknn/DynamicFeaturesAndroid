@@ -12,16 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.vosk.demo;
+package com.example.dynamicfeature.demo;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.ToggleButton;
+
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import com.example.dynamicfeature.R;
+import com.google.android.play.core.splitcompat.SplitCompat;
 
 import org.vosk.LibVosk;
 import org.vosk.LogLevel;
@@ -34,10 +42,6 @@ import org.vosk.android.StorageService;
 
 import java.io.IOException;
 import java.io.InputStream;
-
-import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 public class VoskActivity extends Activity implements
         RecognitionListener {
@@ -78,6 +82,13 @@ public class VoskActivity extends Activity implements
         } else {
             initModel();
         }
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        // Emulates installation of on demand modules using SplitCompat.
+        SplitCompat.installActivity(this);
     }
 
     private void initModel() {
