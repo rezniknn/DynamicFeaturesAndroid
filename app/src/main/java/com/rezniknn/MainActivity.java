@@ -1,4 +1,4 @@
-package com.example;
+package com.rezniknn;
 
 import android.app.Activity;
 import android.content.Context;
@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.example.app.R;
 import com.google.android.play.core.splitcompat.SplitCompat;
 import com.google.android.play.core.splitinstall.SplitInstallManager;
 import com.google.android.play.core.splitinstall.SplitInstallManagerFactory;
@@ -74,8 +73,8 @@ public class MainActivity extends Activity {
     private void startDynamicModuleActivity() {
         startActivity(
                 new Intent().setClassName(
-                        "com.example.app",
-                        "com.example.dynamicfeature.VoskActivity"
+                        "com.rezniknn",
+                        "com.rezniknn.dynamicfeature.VoskActivity"
                 )
         );
     }

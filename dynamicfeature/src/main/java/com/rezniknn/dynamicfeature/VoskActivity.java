@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.example.dynamicfeature;
+package com.rezniknn.dynamicfeature;
 
 import android.Manifest;
 import android.app.Activity;
@@ -28,7 +28,6 @@ import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.example.dynamicfeature.R;
 import com.google.android.play.core.splitcompat.SplitCompat;
 
 import org.vosk.LibVosk;
